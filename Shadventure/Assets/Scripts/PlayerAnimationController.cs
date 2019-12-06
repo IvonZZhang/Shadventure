@@ -28,13 +28,9 @@ public class PlayerAnimationController : MonoBehaviour
     {
         Vector2 move = Vector2.zero;
         move.x = Input.GetAxis("Horizontal");
-        bool flipSprite = (spriteRenderer.flipX ? (move.x > 1.0f) : (move.x < -1.0f));
-        if (flipSprite)
-        {
-            spriteRenderer.flipX = !spriteRenderer.flipX;
-        }
 
-        animator.SetFloat("velocityX", Mathf.Abs(move.x));
+
+        animator.SetFloat("VelocityX", Mathf.Abs(move.x));
 
     }
 
