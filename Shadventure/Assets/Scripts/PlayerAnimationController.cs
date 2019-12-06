@@ -34,7 +34,7 @@ public class PlayerAnimationController : MonoBehaviour
             spriteRenderer.flipX = !spriteRenderer.flipX;
         }
 
-        animator.SetFloat("velocityX", Mathf.Abs(move.x));
+        animator.SetFloat("VelocityX", Mathf.Abs(move.x));
 
     }
 
