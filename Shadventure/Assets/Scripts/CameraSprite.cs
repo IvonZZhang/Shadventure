@@ -34,7 +34,7 @@ namespace OpenCVForUnity
         /// <summary>
         /// Set the threshold for converting grey image to binary image
         /// </summary>
-        public int threshold = 130;
+        public int threshold = 70;
 
         /// <summary>
         /// The webcam texture.

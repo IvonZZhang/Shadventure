@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8551736885229419142}
   - component: {fileID: 2567236140434645717}
   - component: {fileID: 4733403974273763209}
+  - component: {fileID: 114298210599165208}
   m_Layer: 0
   m_Name: Shad
   m_TagString: Untagged
@@ -99,3 +100,15 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114298210599165208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4820858227087677826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2e48fcfb79b4314f8ade26a7943c61f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
