@@ -188,7 +188,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 422196042}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 294.6, y: 35.2, z: -10}
+  m_LocalPosition: {x: 1.2, y: 1.8, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -48319,6 +48319,36 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &687143634
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 687143635}
+  m_Layer: 0
+  m_Name: CeillingCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &687143635
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 687143634}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.09000015, y: 0.5799999, z: 0.22074556}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1966148386332485351}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &699117809
 GameObject:
   m_ObjectHideFlags: 0
@@ -52037,7 +52067,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &749003033
 GameObject:
@@ -56717,6 +56747,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1015005093
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1015005094}
+  m_Layer: 0
+  m_Name: GroundCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1015005094
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1015005093}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.11, y: -1.24, z: 0.22074556}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1966148386332485351}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1015536582
 GameObject:
   m_ObjectHideFlags: 0
@@ -56842,7 +56902,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1206257659
 GameObject:
@@ -61844,7 +61904,7 @@ Transform:
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1929979515
 GameObject:
@@ -61923,7 +61983,7 @@ Transform:
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1966148386332485349
 PrefabInstance:
@@ -61935,17 +61995,17 @@ PrefabInstance:
     - target: {fileID: 4820858227087677826, guid: daef9e60a89c9054b98cd64c52721ccc,
         type: 3}
       propertyPath: m_Name
-      value: Shad
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 8551736885229419142, guid: daef9e60a89c9054b98cd64c52721ccc,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 19.798313
+      value: -13.66
       objectReference: {fileID: 0}
     - target: {fileID: 8551736885229419142, guid: daef9e60a89c9054b98cd64c52721ccc,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.2385244
+      value: 6.79
       objectReference: {fileID: 0}
     - target: {fileID: 8551736885229419142, guid: daef9e60a89c9054b98cd64c52721ccc,
         type: 3}
@@ -61994,3 +62054,78 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: daef9e60a89c9054b98cd64c52721ccc, type: 3}
+--- !u!1 &1966148386332485350 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4820858227087677826, guid: daef9e60a89c9054b98cd64c52721ccc,
+    type: 3}
+  m_PrefabInstance: {fileID: 1966148386332485349}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1966148386332485351 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8551736885229419142, guid: daef9e60a89c9054b98cd64c52721ccc,
+    type: 3}
+  m_PrefabInstance: {fileID: 1966148386332485349}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &1966148386332485352
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1966148386332485350}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!114 &1966148386332485353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1966148386332485350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddca650374b78524abfdc7d96d517954, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 1966148386332485354}
+  runSpeed: 40
+--- !u!114 &1966148386332485354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1966148386332485350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2029848a8dfc55148b478a8f6481c95d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_JumpForce: 100
+  m_CrouchSpeed: 0.36
+  m_MovementSmoothing: 0.05
+  m_AirControl: 0
+  m_WhatIsGround:
+    serializedVersion: 2
+    m_Bits: 0
+  m_GroundCheck: {fileID: 1015005094}
+  m_CeilingCheck: {fileID: 687143635}
+  m_CrouchDisableCollider: {fileID: 0}
+  OnLandEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCrouchEvent:
+    m_PersistentCalls:
+      m_Calls: []
