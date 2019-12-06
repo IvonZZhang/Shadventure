@@ -67168,7 +67168,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1463262677}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85c2dc6e01aa5e54c84539d96abb2ca5, type: 3}
+  m_Script: {fileID: 11500000, guid: f487527ab6ec21941aac2b0428153a5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   SpawnPoints: {fileID: 1135538878}
