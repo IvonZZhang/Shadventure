@@ -72,11 +72,11 @@ GameObject:
   - component: {fileID: 2567236140434645717}
   - component: {fileID: 4733403974273763209}
   - component: {fileID: 114298210599165208}
-  - component: {fileID: 1966148386332485352}
   - component: {fileID: 1966148386332485357}
   - component: {fileID: 1966148386332485358}
   - component: {fileID: 1966148386332485353}
   - component: {fileID: 1966148386332485354}
+  - component: {fileID: 1966148386332485352}
   m_Layer: 0
   m_Name: Shad
   m_TagString: Untagged
@@ -179,27 +179,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2e48fcfb79b4314f8ade26a7943c61f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!50 &1966148386332485352
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4820858227087677826}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
 --- !u!61 &1966148386332485357
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -284,3 +263,24 @@ MonoBehaviour:
   OnCrouchEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!50 &1966148386332485352
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4820858227087677826}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
