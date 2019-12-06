@@ -9,12 +9,15 @@ public class PlayerAnimationController : MonoBehaviour
     private Animator animator;
     private CharacterController2D charCont;
     private float blinkCounter = 0;
+    private Rigidbody2D rb2d;
+    private bool falling = false;
 
     void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         charCont = GetComponent<CharacterController2D>();
+        rb2d = GetComponent<Rigidbody2D>();
         Random.InitState(0);
     }
 
@@ -31,6 +34,22 @@ public class PlayerAnimationController : MonoBehaviour
 
 
         animator.SetFloat("VelocityX", Mathf.Abs(move.x));
+        animator.SetFloat("VelocityY", rb2d.velocity.y);
+        if (!falling)
+        {
+            if(rb2d.velocity.y < -1.0f)
+            {
+                falling = true;
+                animator.SetTrigger("StartFalling");
+            }
+        }
+        else
+        {
+            if(rb2d.velocity.y > -1.0f)
+            {
+                falling = false;
+            }
+        }
 
     }
 
