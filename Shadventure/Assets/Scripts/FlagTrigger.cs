@@ -10,6 +10,7 @@ public class FlagTrigger : MonoBehaviour
     void Start()
     {
         // levelManager = GameObject.Find("ScriptRunner").GetComponent(typeof(CamLevelManager));
+        
     }
 
     // Update is called once per frame
@@ -24,10 +25,9 @@ public class FlagTrigger : MonoBehaviour
         if(other.tag == "Player")
         {
             Debug.Log("On Trigger!!!" + this.name);
-            string numbersOnly = Regex.Replace(this.name, "[^0-9]", "");
-            Debug.Log(int.Parse(numbersOnly));
+            string levelNumber = Regex.Replace(this.name, "[^0-9]", "");
             Debug.Log("aaaaaaaaaaa" + levelManager.GetCurrentLevel());
-            levelManager.MoveToLevel(int.Parse(numbersOnly));
+            levelManager.MoveToLevel(int.Parse(levelNumber));
         }
         
     }
