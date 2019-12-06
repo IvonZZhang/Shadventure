@@ -58,8 +58,6 @@ namespace OpenCVForUnity
 
         GameObject shadow_object;
 
-        float initialTimer = 0.02f;
-
         float pixelPerUnit = 16.0f;
 
         /// <summary>
@@ -99,9 +97,8 @@ namespace OpenCVForUnity
 
             Sprite shadow_sprite = Sprite.Create(texture, new UnityEngine.Rect(0, 0, requestedWidth, requestedHeight), Vector2.zero, pixelPerUnit, 1, SpriteMeshType.FullRect);
             shadow_object.GetComponent<SpriteRenderer>().sprite = shadow_sprite;
-            // shadow_object.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, 0);
 
-            // shadow_object.AddComponent(typeof(PolygonCollider2D));
+            shadow_object.AddComponent(typeof(PolygonCollider2D));
         }
 
         /// <summary>
@@ -254,16 +251,6 @@ namespace OpenCVForUnity
         // Update is called once per frame
         void Update ()
         {
-            initialTimer -= Time.deltaTime;
- 
-            if (initialTimer >= 0.0f)
-            {
-                Debug.Log(initialTimer);
-                return;}
-            // } else if(initialTimer == 0.0f) {
-            //     shadow_object.AddComponent(typeof(PolygonCollider2D));
-            // }
-
             if (hasInitDone && webCamTexture.isPlaying && webCamTexture.didUpdateThisFrame) {
 
                 // change bg to transparent
@@ -275,7 +262,6 @@ namespace OpenCVForUnity
                         pixels[i] = new Color(0, 0, 0, 0);                        
                     }
                 }
-                pixels[0] = new Color(0, 0, 0, 1);
                 texture.SetPixels(pixels);
                 texture.Apply();
                 Destroy(shadow_object.GetComponent(typeof(PolygonCollider2D)));

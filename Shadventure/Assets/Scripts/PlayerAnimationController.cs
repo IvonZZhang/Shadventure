@@ -52,7 +52,7 @@ public class PlayerAnimationController : MonoBehaviour
             }
         }
 
-        animator.SetFloat("VelocityX", Mathf.Abs(move.x));
+        animator.SetFloat("velocityX", Mathf.Abs(move.x));
 
     }
 
