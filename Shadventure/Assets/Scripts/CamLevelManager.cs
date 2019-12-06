@@ -14,60 +14,34 @@ public class CamLevelManager : MonoBehaviour
 
     int mov_flag = 0;
     int currentLevel = 0;
+    int step_counter = 0;
+    int total_step = 70;
+    float deltaX, deltaY;
     // Script flagTrigger;
     // int incX, incY;
 
     private void Start()
     {
-        // flagTrigger = LevelFlags.GetChild(currentLevel).GetComponentInParent(typeof(FlagTrigger));
-
+        deltaX = total_step / 35;
+        deltaY = total_step / 15;
     }
     
     private void Update()
     {
-        // if(PlayerTransform.position.x > 5 && PlayerTransform.position.x < PositionLvl1.position.x )
-        // {
-        //     CameraTransform.position.x =  CameraTransform.position.x + 0.1 ;
-        // }
-        // if(PlayerTransform.position.x > PositionLvl1.position.x)
-        // {
-        //     CameraTransform.position = PositionLvl1.position;
-        // }
-        // if(PlayerTransform.position.x > CameraTransform.position.x + 15){
-        //     mov_flag = 1;
-        // }
-
-        if(mov_flag == 1){
-            // flagTrigger.
-            CameraTransform.position = LevelPoints.GetChild(0).position;
-            ShadowTransform.position = LevelPoints.GetChild(0).position + new Vector3(20.0f, -11.25f, 10.0f);
-            mov_flag = 2;
+        if(mov_flag != 0)
+        {
+            CameraTransform.position = CameraTransform.position 
+                    // + new Vector3 (mov_flag * (deltaX/70), mov_flag * (deltaY/30), 0);
+                    + new Vector3 (deltaX/70, deltaY/30, 0);
+            ShadowTransform.position = ShadowTransform.position 
+                    + new Vector3 (deltaX/70, deltaY/30, 0);
+            if(++step_counter == total_step)
+            {
+                mov_flag = 0;
+            }
         }
-
-
-
-
-        // if(mov_flag == 1)
-        // {
-            //CameraTransform.position = PositionLvl1.position;
-            // if(CameraTransform.position.x < PositionLvl1.position.x)
-            // {
-            //     CameraTransform.position = CameraTransform.position + new Vector3 (0.5f, 0, 0);
-            //     ShadowTransform.position = ShadowTransform.position + new Vector3 (0.5f, 0, 0);
-            // }
-            // if(CameraTransform.position.y < PositionLvl1.position.y)
-            // {
-            //     CameraTransform.position = CameraTransform.position + new Vector3 (0, 0.5f, 0);
-            //     ShadowTransform.position = ShadowTransform.position + new Vector3 (0, 0.5f, 0);
-            // }
-            // else {
-            
-                // CameraTransform.position = PositionLvl1.position;
-                // ShadowTransform.position = PositionLvl1.position + new Vector3(20.0f, -11.25f, 10.0f);
-                // mov_flag = 2;
-            // }
-        }
-    // }/
+    }
+    
 
     public int GetCurrentLevel()
     {
@@ -79,7 +53,29 @@ public class CamLevelManager : MonoBehaviour
         Debug.Log(targetLevel + " level calls levelpoint: " + LevelPoints.GetChild(targetLevel).name);
         CameraTransform.position = LevelPoints.GetChild(targetLevel).position;
         ShadowTransform.position = LevelPoints.GetChild(targetLevel).position + new Vector3(20.0f, -11.25f, 10.0f);
+        
+        if(LevelPoints.GetChild(targetLevel).position.x - CameraTransform.position.x > 0)
+        {
+            deltaX = total_step / 35;
+            
+        } else if(LevelPoints.GetChild(targetLevel).position.x - CameraTransform.position.x == 0) {
+            deltaX = 0;
+        } else {
+            deltaX = - total_step / 35;
+        }
+
+        if(LevelPoints.GetChild(targetLevel).position.y - CameraTransform.position.y > 0)
+        {
+            deltaY = total_step / 35;
+            
+        } else if(LevelPoints.GetChild(targetLevel).position.y - CameraTransform.position.y == 0) {
+            deltaY = 0;
+        } else {
+            deltaY = - total_step / 35;
+        }
+        // deltaY = LevelPoints.GetChild(targetLevel).positiom.y - CameraTransform.position.y > 0 ? deltaY : -deltaY;
+
+        mov_flag = 1;
         currentLevel = targetLevel;
     }
-
 }
