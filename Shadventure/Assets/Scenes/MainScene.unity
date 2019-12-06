@@ -390,9 +390,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LevelPoints: {fileID: 1266191443}
   LevelFlags: {fileID: 1902999889}
-  CameraTransform: {fileID: 0}
-  ShadowTransform: {fileID: 0}
-  PlayerTransform: {fileID: 0}
+  CameraTransform: {fileID: 422196045}
+  ShadowTransform: {fileID: 716035639}
+  PlayerTransform: {fileID: 1966148386332485351}
 --- !u!114 &539514371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48535,36 +48535,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1 &687143634
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 687143635}
-  m_Layer: 0
-  m_Name: CeillingCheck
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &687143635
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 687143634}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.09000015, y: 0.5799999, z: 0.22074556}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1966148386332485351}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &699117809
 GameObject:
   m_ObjectHideFlags: 0
@@ -56898,7 +56868,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0939868dab4fdc748b4a8cbb1e04ec6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelManager: {fileID: 0}
+  levelManager: {fileID: 539514370}
 --- !u!60 &904375625
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -57041,36 +57011,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1266191443}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1015005093
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1015005094}
-  m_Layer: 0
-  m_Name: GroundCheck
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1015005094
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1015005093}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.11, y: -1.24, z: 0.22074556}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1966148386332485351}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1015536582
 GameObject:
@@ -62727,12 +62667,12 @@ PrefabInstance:
     - target: {fileID: 8551736885229419142, guid: daef9e60a89c9054b98cd64c52721ccc,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13.66
+      value: 13.41
       objectReference: {fileID: 0}
     - target: {fileID: 8551736885229419142, guid: daef9e60a89c9054b98cd64c52721ccc,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.79
+      value: 12.88
       objectReference: {fileID: 0}
     - target: {fileID: 8551736885229419142, guid: daef9e60a89c9054b98cd64c52721ccc,
         type: 3}
@@ -62778,6 +62718,14 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1015005094, guid: daef9e60a89c9054b98cd64c52721ccc, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 687143635, guid: daef9e60a89c9054b98cd64c52721ccc, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: daef9e60a89c9054b98cd64c52721ccc, type: 3}
@@ -62847,8 +62795,8 @@ MonoBehaviour:
   m_WhatIsGround:
     serializedVersion: 2
     m_Bits: 0
-  m_GroundCheck: {fileID: 1015005094}
-  m_CeilingCheck: {fileID: 687143635}
+  m_GroundCheck: {fileID: 0}
+  m_CeilingCheck: {fileID: 0}
   m_CrouchDisableCollider: {fileID: 0}
   OnLandEvent:
     m_PersistentCalls:
