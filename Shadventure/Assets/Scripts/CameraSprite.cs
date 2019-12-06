@@ -241,94 +241,33 @@ namespace OpenCVForUnity
             if (texture == null || texture.width != webCamTexture.width || texture.height != webCamTexture.height)
                 texture = new Texture2D (webCamTexture.width, webCamTexture.height, TextureFormat.RGBA32, false);
 
-            gameObject.GetComponent<Renderer>().material.mainTexture = texture;
+            // gameObject.GetComponent<Renderer>().material.mainTexture = texture;
 
             // gameObject.transform.localScale = new Vector3 (webCamTexture.width, webCamTexture.height, 1);
-            gameObject.transform.localScale = new Vector3 (0, 0, 0);
+            // gameObject.transform.localScale = new Vector3 (0, 0, 0);
             Debug.Log ("Screen.width " + Screen.width + " Screen.height " + Screen.height + " Screen.orientation " + Screen.orientation);
-
-            // float widthScale = (float)Screen.width / width;
-            // Debug.Log("Screen width is " + Screen.width);
-            // Debug.Log("Screen height is " + Screen.height);
-            // float heightScale = (float)Screen.height / height;
-            // if (widthScale < heightScale) {
-            //     Camera.main.orthographicSize = (width * (float)Screen.height / (float)Screen.width) / 2;
-            // } else {
-            //     Camera.main.orthographicSize = height / 2;
-            // }
-            // Camera.main.orthographicSize = 1.8f;
         }
 
         // Update is called once per frame
         void Update ()
         {
             if (hasInitDone && webCamTexture.isPlaying && webCamTexture.didUpdateThisFrame) {
-                // Utils.webCamTextureToMat (webCamTexture, rgbaMat, colors);
-
-                // Imgproc.putText (rgbaMat, "W:" + rgbaMat.width () + " H:" + rgbaMat.height () + " SO:" + Screen.orientation, new Point (5, rgbaMat.rows () - 10), Core.FONT_HERSHEY_SIMPLEX, 1.0, new Scalar (255, 255, 255, 255), 2, Imgproc.LINE_AA, false);
-                // Imgproc.cvtColor(rgbaMat, grayMat, Imgproc.COLOR_BGR2GRAY, 0);
-                // Imgproc.threshold(grayMat, bwMat, threshold, 255, Imgproc.THRESH_BINARY);
-
-
-                // // Utils.matToTexture2D (rgbaMat, texture, colors);
-                // // Utils.matToTexture2D (grayMat, texture, colors);
-                // Utils.matToTexture2D (bwMat, texture, colors);
-                // texture.SetPixels(webCamTexture.GetPixels());
 
                 // change bg to transparent
                 Color[] pixels = webCamTexture.GetPixels();
-                Debug.Log(pixels[10]);
-                Debug.Log(pixels[10].grayscale);
-                // Debug.Log( pixels[1000].ToString() );
                 for(int i = 0; i < pixels.Length; i++) {
-                    // Debug.Log(pixels[i].grayscale);
-                    // if(pixels[i][0] != 0) {
                     if((pixels[i].grayscale * 255) < threshold){
-                        // image = ( (0.3 * R) + (0.59 * G) + (0.11 * B) ).
                         pixels[i] = new Color(0, 0, 0, 1);
                     } else {
                         pixels[i] = new Color(0, 0, 0, 0);                        
                     }
                 }
                 texture.SetPixels(pixels);
-                // texture.SetPixels(webCamTexture.GetPixels());
                 texture.Apply();
                 Destroy(shadow_object.GetComponent(typeof(PolygonCollider2D)));
                 shadow_object.AddComponent(typeof(PolygonCollider2D));
 
             }
-            
-
-            // PART 2 update object regularly
-            // update_timer -= Time.deltaTime;
-            // if(update_timer < 0)
-            // if(false)
-            // {
-                // update_timer = 3.0f;
-                // shadow_object2 = Instantiate(shadow_object);
-                // shadow_object2.GetComponent<SpriteRenderer>().sprite = Sprite.Create(texture2, new Rect(0, 0, requestedWidth, requestedHeight), Vector2.zero);
-                // Destroy(shadow_object);
-                // if(sprite_cntr == 0) {
-                //     shadow_object = Instantiate(shadow_object2);
-                //     shadow_object.name = "shadow_object 2";
-                //     // shadow_object.GetComponent<SpriteRenderer>().sprite = Sprite.Create(texture, new Rect(0, 0, requestedWidth, requestedHeight), Vector2.zero);
-                //     shadow_object.GetComponent<SpriteRenderer>().sprite = Sprite.Create(texture, new UnityEngine.Rect(0, 0, requestedWidth, requestedHeight), Vector2.zero);
-                //     Destroy(shadow_object2);
-                //     Debug.Log("cntr = 0 object created.");
-                //     sprite_cntr = 1;
-                // } else {
-                //     shadow_object2 = Instantiate(shadow_object);
-                //     shadow_object.name = "shadow_object 1";
-                //     // shadow_object2.GetComponent<SpriteRenderer>().sprite = Sprite.Create(texture2, new Rect(0, 0, requestedWidth, requestedHeight), Vector2.zero);
-                //     shadow_object.GetComponent<SpriteRenderer>().sprite = Sprite.Create(texture, new UnityEngine.Rect(0, 0, requestedWidth, requestedHeight), Vector2.zero);
-                //     Destroy(shadow_object);
-                //     Debug.Log("cntr = 1 object2 created.");
-                //     sprite_cntr = 0;
-                // }
-                // Debug.Log("Time up!");
-                // shadow_object.GetComponent<SpriteRenderer>().sprite = Sprite.Create(texture, new UnityEngine.Rect(0, 0, requestedWidth, requestedHeight), Vector2.zero);
-                
-            // }
         }
 
         /// <summary>
