@@ -7,12 +7,14 @@ public class PlayerAnimationController : MonoBehaviour
 {
     private SpriteRenderer spriteRenderer;
     private Animator animator;
+    private CharacterController2D charCont;
     private float blinkCounter = 0;
 
     void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+        charCont = GetComponent<CharacterController2D>();
         Random.InitState(0);
     }
 
