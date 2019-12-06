@@ -54,7 +54,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1704958935}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.11, y: -1.17, z: 0.22074556}
+  m_LocalPosition: {x: 0, y: -1.381, z: 0.22074556}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8551736885229419142}
@@ -79,7 +79,7 @@ GameObject:
   - component: {fileID: 1966148386332485352}
   m_Layer: 0
   m_Name: Shad
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -248,19 +248,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_JumpForce: 200
-  m_CrouchSpeed: 0.36
   m_MovementSmoothing: 0.145
   m_AirControl: 1
   m_WhatIsGround:
     serializedVersion: 2
     m_Bits: 0
   m_GroundCheck: {fileID: 1015005094}
-  m_CeilingCheck: {fileID: 687143635}
-  m_CrouchDisableCollider: {fileID: 0}
+  m_Grounded: 0
+  wasGrounded: 0
   OnLandEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  OnCrouchEvent:
     m_PersistentCalls:
       m_Calls: []
 --- !u!50 &1966148386332485352

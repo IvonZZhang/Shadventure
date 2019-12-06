@@ -9,12 +9,16 @@ public class PlayerAnimationController : MonoBehaviour
     private Animator animator;
     private CharacterController2D charCont;
     private float blinkCounter = 0;
+    private int sitCounter = 0;
+    private Rigidbody2D rb2d;
+    private bool falling = false;
 
     void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         charCont = GetComponent<CharacterController2D>();
+        rb2d = GetComponent<Rigidbody2D>();
         Random.InitState(0);
     }
 
@@ -28,13 +32,27 @@ public class PlayerAnimationController : MonoBehaviour
     {
         Vector2 move = Vector2.zero;
         move.x = Input.GetAxis("Horizontal");
-        bool flipSprite = (spriteRenderer.flipX ? (move.x > 1.0f) : (move.x < -1.0f));
-        if (flipSprite)
+
+
+        animator.SetFloat("VelocityX", Mathf.Abs(move.x));
+        animator.SetFloat("VelocityY", rb2d.velocity.y);
+        if (!falling)
         {
-            spriteRenderer.flipX = !spriteRenderer.flipX;
+            if(rb2d.velocity.y < -1.0f)
+            {
+                falling = true;
+                animator.SetTrigger("StartFalling");
+            }
+        }
+        else
+        {
+            if(rb2d.velocity.y > -1.0f)
+            {
+                falling = false;
+            }
         }
 
-        animator.SetFloat("velocityX", Mathf.Abs(move.x));
+        animator.SetFloat("VelocityX", Mathf.Abs(move.x));
 
     }
 
@@ -45,6 +63,19 @@ public class PlayerAnimationController : MonoBehaviour
         {
             animator.SetTrigger("BlinkTrigger");
             blinkCounter = 0;
+        }
+
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Shad_standing") || animator.GetCurrentAnimatorStateInfo(0).IsName("Shad_blinking"))
+        {
+            sitCounter++;
+            if(sitCounter > 120)
+            {
+                animator.SetTrigger("StartSitting");
+            }
+        }
+        else
+        {
+            sitCounter = 0;
         }
 
     }
