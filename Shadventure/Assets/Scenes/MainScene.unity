@@ -394,6 +394,10 @@ Transform:
   m_Father: {fileID: 0}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+  m_RootOrder: 6
+>>>>>>> parent of 383acd8... Smooth moving debugged.
 =======
   m_RootOrder: 6
 >>>>>>> parent of 383acd8... Smooth moving debugged.
@@ -57168,6 +57172,7 @@ Transform:
   m_Father: {fileID: 0}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_RootOrder: 8
 GameObject:
   m_ObjectHideFlags: 0
@@ -57246,6 +57251,9 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 11
+=======
+  m_RootOrder: 7
+>>>>>>> parent of 383acd8... Smooth moving debugged.
 =======
   m_RootOrder: 7
 >>>>>>> parent of 383acd8... Smooth moving debugged.
@@ -66359,6 +66367,7 @@ Transform:
   m_Father: {fileID: 0}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_RootOrder: 6
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -66621,6 +66630,9 @@ Transform:
 =======
   m_RootOrder: 5
 >>>>>>> parent of 383acd8... Smooth moving debugged.
+=======
+  m_RootOrder: 5
+>>>>>>> parent of 383acd8... Smooth moving debugged.
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1966148386332485349
 PrefabInstance:
@@ -66639,8 +66651,12 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       value: 12.78
       value: -14.9
+=======
+      value: -13.66
+>>>>>>> parent of 383acd8... Smooth moving debugged.
 =======
       value: -13.66
 >>>>>>> parent of 383acd8... Smooth moving debugged.
@@ -66653,8 +66669,12 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       value: 14.69
       value: 7.1
+=======
+      value: 6.79
+>>>>>>> parent of 383acd8... Smooth moving debugged.
 =======
       value: 6.79
 >>>>>>> parent of 383acd8... Smooth moving debugged.
