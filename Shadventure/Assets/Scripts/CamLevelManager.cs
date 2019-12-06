@@ -15,8 +15,10 @@ public class CamLevelManager : MonoBehaviour
     int mov_flag = 0;
     int currentLevel = 0;
     int step_counter = 0;
-    int total_step = 50;
+    int total_step = 70;
     float deltaX, deltaY;
+    // Script flagTrigger;
+    // int incX, incY;
 
     private void Start()
     {
@@ -30,18 +32,13 @@ public class CamLevelManager : MonoBehaviour
         {
             CameraTransform.position = CameraTransform.position 
                     // + new Vector3 (mov_flag * (deltaX/70), mov_flag * (deltaY/30), 0);
-                    + new Vector3 (deltaX, deltaY, 0);
+                    + new Vector3 (deltaX/70, deltaY/30, 0);
             ShadowTransform.position = ShadowTransform.position 
-                    + new Vector3 (deltaX, deltaY, 0);
+                    + new Vector3 (deltaX/70, deltaY/30, 0);
             if(++step_counter == total_step)
             {
                 mov_flag = 0;
-                step_counter = 0;
-                CameraTransform.position = LevelPoints.GetChild(currentLevel).position;
-                ShadowTransform.position = LevelPoints.GetChild(currentLevel).position + new Vector3(20.0f, -11.25f, 10.0f);
             }
-            Debug.Log("Step counter is " + step_counter + ". deltaX is " + deltaX);
-            Debug.Log("Camera is at " + CameraTransform.position);
         }
     }
     
@@ -54,27 +51,27 @@ public class CamLevelManager : MonoBehaviour
     public void MoveToLevel(int targetLevel)
     {
         Debug.Log(targetLevel + " level calls levelpoint: " + LevelPoints.GetChild(targetLevel).name);
-        // CameraTransform.position = LevelPoints.GetChild(targetLevel).position;
-        // ShadowTransform.position = LevelPoints.GetChild(targetLevel).position + new Vector3(20.0f, -11.25f, 10.0f);
+        CameraTransform.position = LevelPoints.GetChild(targetLevel).position;
+        ShadowTransform.position = LevelPoints.GetChild(targetLevel).position + new Vector3(20.0f, -11.25f, 10.0f);
         
         if(LevelPoints.GetChild(targetLevel).position.x - CameraTransform.position.x > 0)
         {
-            deltaX = 35.0f / total_step;
+            deltaX = total_step / 35;
             
         } else if(LevelPoints.GetChild(targetLevel).position.x - CameraTransform.position.x == 0) {
             deltaX = 0;
         } else {
-            deltaX = -35.0f / total_step;
+            deltaX = - total_step / 35;
         }
 
         if(LevelPoints.GetChild(targetLevel).position.y - CameraTransform.position.y > 0)
         {
-            deltaY = 15.0f / total_step;
+            deltaY = total_step / 35;
             
         } else if(LevelPoints.GetChild(targetLevel).position.y - CameraTransform.position.y == 0) {
             deltaY = 0;
         } else {
-            deltaY = -15.0f / total_step;
+            deltaY = - total_step / 35;
         }
         // deltaY = LevelPoints.GetChild(targetLevel).positiom.y - CameraTransform.position.y > 0 ? deltaY : -deltaY;
 
@@ -82,6 +79,3 @@ public class CamLevelManager : MonoBehaviour
         currentLevel = targetLevel;
     }
 }
-
-// deltaX * step = 35
-// deltaY * step = 15
