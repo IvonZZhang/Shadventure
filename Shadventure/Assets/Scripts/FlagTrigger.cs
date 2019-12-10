@@ -24,10 +24,10 @@ public class FlagTrigger : MonoBehaviour
         if(other.tag == "Player")
         {
             Debug.Log("On Trigger!!!" + this.name);
-            string numbersOnly = Regex.Replace(this.name, "[^0-9]", "");
-            Debug.Log(int.Parse(numbersOnly));
+            string flagNumber = Regex.Replace(this.name, "[^0-9]", "");
+            Debug.Log(int.Parse(flagNumber));
             Debug.Log("aaaaaaaaaaa" + levelManager.GetCurrentLevel());
-            levelManager.MoveToLevel(int.Parse(numbersOnly));
+            levelManager.MoveToLevel(int.Parse(flagNumber));
         }
         
     }

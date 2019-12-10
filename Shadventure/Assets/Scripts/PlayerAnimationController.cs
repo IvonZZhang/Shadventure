@@ -9,6 +9,7 @@ public class PlayerAnimationController : MonoBehaviour
     private Animator animator;
     private CharacterController2D charCont;
     private float blinkCounter = 0;
+    private int sitCounter = 0;
     private Rigidbody2D rb2d;
     private bool falling = false;
 
@@ -51,6 +52,8 @@ public class PlayerAnimationController : MonoBehaviour
             }
         }
 
+        animator.SetFloat("VelocityX", Mathf.Abs(move.x));
+
     }
 
     void FixedUpdate()
@@ -60,6 +63,19 @@ public class PlayerAnimationController : MonoBehaviour
         {
             animator.SetTrigger("BlinkTrigger");
             blinkCounter = 0;
+        }
+
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Shad_standing") || animator.GetCurrentAnimatorStateInfo(0).IsName("Shad_blinking"))
+        {
+            sitCounter++;
+            if(sitCounter > 120)
+            {
+                animator.SetTrigger("StartSitting");
+            }
+        }
+        else
+        {
+            sitCounter = 0;
         }
 
     }
