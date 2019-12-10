@@ -6,6 +6,9 @@ using UnityEngine;
 public class DieTrigger : MonoBehaviour
 {
     public Transform SpawnPoints;
+    public Transform CameraTransform;
+    public Transform ShadowTransform;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +32,11 @@ public class DieTrigger : MonoBehaviour
             {
                 case 1:
                     SetPlayerToSpawnPoint(1);
+                    break;
+                case 2:
+                    SetPlayerToSpawnPoint(2);
+                    CameraTransform.position = new Vector3(140.0f, 15.0f, -10.0f);
+                    ShadowTransform.position = CameraTransform.position + new Vector3(20.0f, -11.25f, 10.0f);
                     break;
             }
         }

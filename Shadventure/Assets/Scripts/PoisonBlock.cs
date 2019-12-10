@@ -20,8 +20,14 @@ public class PoisonBlock : MonoBehaviour
     }
     void OnCollisionEnter2D(Collision2D col)
     {
-        Debug.Log("Player touch the poison brick");
-        playerTransform.position = spawnPosition.position;
+        if(col.collider.tag == "Player")
+        {
+
+            Debug.Log("Player touch the poison brick");
+            playerTransform.position = spawnPosition.position;
+        
+        }
+
         // if(col.gameObject.tag == "Player")
         // {
         //     Debug.Log(col.gameObject.tag);
