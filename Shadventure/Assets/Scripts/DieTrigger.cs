@@ -38,6 +38,12 @@ public class DieTrigger : MonoBehaviour
                     CameraTransform.position = new Vector3(140.0f, 15.0f, -10.0f);
                     ShadowTransform.position = CameraTransform.position + new Vector3(20.0f, -11.25f, 10.0f);
                     break;
+                case 3:
+                    SetPlayerToSpawnPoint(3);
+                    break;
+                case 4:
+                    SetPlayerToSpawnPoint(3);
+                    break;
             }
         }
         

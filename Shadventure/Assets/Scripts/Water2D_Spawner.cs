@@ -22,8 +22,11 @@
 	{
 
 		public static Water2D_Spawner instance;
+		public bool finished = false;
+        public boatTrigger triggerScript0;
+        public boatTrigger triggerScript1;
 
-		void Awake()
+        void Awake()
 		{
 			if(instance == null)
 				instance = this;
@@ -148,10 +151,6 @@
 			WaterDropsObjects [0].transform.localScale = new Vector3 (size, size, 1f);
 			WaterDropsObjects [0].GetComponent<MetaballParticleClass>().Active = false;
 
-
-
-
-
             for (int i = 1; i < WaterDropsObjects.Length; i++) {
 				WaterDropsObjects[i] = Instantiate(WaterDropsObjects[0], gameObject.transform.position, new Quaternion(0,0,0,0)) as GameObject;
 				WaterDropsObjects [i].GetComponent<MetaballParticleClass>().Active = false;
@@ -168,8 +167,8 @@
 
 			microSpawns = new List<microSpawn>(5); // Up to 5 microspwawn
 
-
-            instance.Spawn();
+			Debug.Log("spawner checkpoint7 \n");
+            //instance.Spawn();
         }
 
 		public void RunMicroSpawn(Vector3 pos, int amount, Vector2 initVel)
@@ -186,7 +185,9 @@
 
 
 		public void Spawn(){
+			finished = false;
 			Spawn (DefaultCount);
+			Debug.Log("spawner checkpoint4 \n");
 		}
 
 		public void Spawn(int count){
@@ -194,11 +195,12 @@
             if (DelayBetweenParticles == 0f)
             {
                 SpawnAll();
+				Debug.Log("spawner checkpoint5 \n");
             }
             else {
                 StartCoroutine(loop(gameObject.transform.position, initSpeed, count));
+				Debug.Log("spawner checkpoint6 \n");
             }
-			
 		}
 
         public void SpawnAll() {
@@ -233,12 +235,14 @@
 
 		public void Restore()
 		{
+            triggerScript0.waterTouching = false;
+            triggerScript1.waterTouching = false;
 
-			IsWaterInScene = false;
+
+            IsWaterInScene = false;
 			_breakLoop = true;
 
 			microSpawns.Clear ();
-
 
 			for (int i = 0; i < WaterDropsObjects.Length; i++) {
 				if (WaterDropsObjects [i].GetComponent<MetaballParticleClass> ().Active == true) {
@@ -247,11 +251,8 @@
 				WaterDropsObjects [i].GetComponent<MetaballParticleClass> ().witinTarget = false;			
 			}
 
-
-
-
 			gameObject.transform.localEulerAngles = Vector3.zero;
-			initSpeed = new Vector2 (0, -2f);
+			initSpeed = new Vector2 (Random.Range(-1f,1f), -2f);
 
 			DefaultCount = AllBallsCount;
 			//usableDropsCount = DefaultCount;
@@ -269,7 +270,9 @@
 			while (true) {
 				for (int i = 0; i < WaterDropsObjects.Length; i++) {
 
-					if (_breakLoop)
+                    initSpeed = new Vector2(Random.Range(-1f, 1f), -2f);
+
+                    if (_breakLoop)
 						yield break;
 
 					MetaballParticleClass MetaBall = WaterDropsObjects [i].GetComponent<MetaballParticleClass> ();
@@ -292,7 +295,8 @@
 					}
 
 					WaterDropsObjects [i].GetComponent<Rigidbody2D> ().velocity = _initSpeed;
-
+					
+					Debug.Log("spawner checkpoint1 \n");
 
 					// Count limiter
 					if (count > -1) {
@@ -301,18 +305,27 @@
 							yield break;
 						} 
 					}
-
+					
 					if(waitBetweenDropSpawn)
 						yield return new WaitForSeconds (DelayBetweenParticles);
 
 				}
+				
+				finished = true;
+
 				yield return new WaitForEndOfFrame ();
 				//alreadySpawned = true;
 
 				if (!Dynamic)
+				{
+					Debug.Log("spawner checkpoint3 \n");
 					yield break;
+				}
+					
 
 			}
+			Debug.Log("spawner checkpoint2 \n");
+			
 		}
 
 

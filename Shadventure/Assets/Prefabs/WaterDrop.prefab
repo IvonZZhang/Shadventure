@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 21251924}
   - component: {fileID: 58207158184040794}
   - component: {fileID: 50136950052901686}
-  - component: {fileID: 114815093173730838}
+  - component: {fileID: 3849495819074638484}
   - component: {fileID: 96420874952216904}
   m_Layer: 8
   m_Name: WaterDrop
@@ -120,7 +120,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &114815093173730838
+--- !u!114 &3849495819074638484
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -129,11 +129,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 199430}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41425761908db1c459e1c00341395dfa, type: 3}
+  m_Script: {fileID: 11500000, guid: c55c2507a1ef42f4aae2890d812eeb84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   MObject: {fileID: 199430}
-  LifeTime: 5
+  LifeTime: 1000
   witinTarget: 0
 --- !u!96 &96420874952216904
 TrailRenderer:
