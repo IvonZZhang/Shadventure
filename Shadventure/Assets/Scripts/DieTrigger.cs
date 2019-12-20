@@ -27,15 +27,16 @@ public class DieTrigger : MonoBehaviour
         {
             Debug.Log("On Trigger!!!" + this.name);
             string dieZoneNumber = Regex.Replace(this.name, "[^0-9]", "");
-            Debug.Log(int.Parse(dieZoneNumber));
+            Debug.Log("Die Zone nr: " + int.Parse(dieZoneNumber));
+            GetComponent<AudioSource>().Play();
             switch(int.Parse(dieZoneNumber))
             {
                 case 1:
                     SetPlayerToSpawnPoint(1);
                     break;
                 case 2:
-                    SetPlayerToSpawnPoint(2);
-                    CameraTransform.position = new Vector3(140.0f, 15.0f, -10.0f);
+                    SetPlayerToSpawnPoint(4);
+                    CameraTransform.position = new Vector3(196.0f, 30.0f, -10.0f);
                     ShadowTransform.position = CameraTransform.position + new Vector3(20.0f, -11.25f, 10.0f);
                     break;
                 case 3:
@@ -43,6 +44,27 @@ public class DieTrigger : MonoBehaviour
                     break;
                 case 4:
                     SetPlayerToSpawnPoint(3);
+                    break;
+                case 5:
+                    Debug.Log("case 5 entered.");
+                    SetPlayerToSpawnPoint(2);
+                    GameObject.Find("LevelFlag 4").SetActive(true);
+                    GameObject.Find("DieZone 5").SetActive(false);
+                    CameraTransform.position = new Vector3(140.0f, 15.0f, -10.0f);
+                    ShadowTransform.position = CameraTransform.position + new Vector3(20.0f, -11.25f, 10.0f);
+                    break;
+                case 6:
+                    SetPlayerToSpawnPoint(2);
+                    GameObject.Find("LevelFlag 4").SetActive(true);
+                    GameObject.Find("LevelFlag 5").SetActive(true);
+                    GameObject.Find("LevelFlag 6").SetActive(true);
+                    GameObject.Find("DieZone 5").SetActive(false);
+                    GameObject.Find("DieZone 6").SetActive(false);
+                    GameObject.Find("Bound 5").GetComponent<BoxCollider2D>().isTrigger = true;
+                    CameraTransform.position = new Vector3(140.0f, 15.0f, -10.0f);
+                    ShadowTransform.position = CameraTransform.position + new Vector3(20.0f, -11.25f, 10.0f);
+                    break;
+                default:
                     break;
             }
         }

@@ -21,7 +21,7 @@ public class sun : MonoBehaviour
 
     void OnBecameInvisible()
     {
-        Debug.Log("OnBecameVisible called.");
+        Debug.Log("OnBecameInvisible called.");
         // Destroy(guard);
         guard.position = guard.position + new Vector3(0, -15.0f, 0);
         // Visibility.Visible(guard_sleep);

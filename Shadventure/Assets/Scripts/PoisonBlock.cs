@@ -24,6 +24,7 @@ public class PoisonBlock : MonoBehaviour
         {
 
             Debug.Log("Player touch the poison brick");
+            GetComponent<AudioSource>().Play();
             playerTransform.position = spawnPosition.position;
         
         }

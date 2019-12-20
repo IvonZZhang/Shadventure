@@ -13,8 +13,8 @@ public class cloudRaining : MonoBehaviour
 
     [SerializeField]
     private float cloudSpeed = 7.0f;
-    private float boundary1 = -17.0f;
-    private float boundary2 = 9.0f;
+    private float boundary1 = -16.0f;
+    private float boundary2 = 8.0f;
     private float height = 6.0f;
 
     private Rigidbody2D cloudRigidbody2d;
