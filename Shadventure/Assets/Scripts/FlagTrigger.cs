@@ -23,7 +23,7 @@ public class FlagTrigger : MonoBehaviour
         // Debug.Log(other.tag);
         if(other.tag == "Player")
         {
-            if(this.name == "RestartFlag")
+            if(this.name == "RestartFlag 14")
             {
                 FindObjectOfType<GameManager>().Restart();
             }
@@ -40,7 +40,7 @@ public class FlagTrigger : MonoBehaviour
                     GameObject.Find("PoisonBrick").SetActive(false);
                     break;
                 case 4:
-                    GameObject.Find("DieZone 5").SetActive(true);
+                    // GameObject.Find("DieZone 5").SetActive(true);
                     break;
                 default:
                     break;
@@ -48,7 +48,10 @@ public class FlagTrigger : MonoBehaviour
             levelManager.MoveToLevel(int.Parse(flagNumber) + 1);
 
             // this.gameObject.SetActive(false);
+            Debug.Log("collider is enabled? " + this.gameObject.GetComponent<Collider2D>().enabled);
             this.gameObject.GetComponent<Collider2D>().enabled = false;
+            Debug.Log("collider on level disabled");
+            this.gameObject.GetComponent<SpriteRenderer>().enabled = false;
         }
         
     }

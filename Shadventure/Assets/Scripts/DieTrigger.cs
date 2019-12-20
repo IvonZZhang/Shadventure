@@ -8,6 +8,7 @@ public class DieTrigger : MonoBehaviour
     public Transform SpawnPoints;
     public Transform CameraTransform;
     public Transform ShadowTransform;
+    public CamLevelManager levelManager;
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +37,10 @@ public class DieTrigger : MonoBehaviour
                     break;
                 case 2:
                     SetPlayerToSpawnPoint(4);
+                    GameObject.Find("LevelFlag 9").GetComponent<Collider2D>().enabled = true;
+                    GameObject.Find("LevelFlag 10").GetComponent<Collider2D>().enabled = true;
+                    // GameObject.Find("Bound 9").GetComponent<Collider2D>().isTrigger = true;
+                    levelManager.SetCurrentLevel(9);
                     CameraTransform.position = new Vector3(196.0f, 30.0f, -10.0f);
                     ShadowTransform.position = CameraTransform.position + new Vector3(20.0f, -11.25f, 10.0f);
                     break;
@@ -73,6 +78,7 @@ public class DieTrigger : MonoBehaviour
 
     private void SetPlayerToSpawnPoint(int spawnPointNr)
     {
+        GameObject.Find("Player").GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
         GameObject.Find("Player").transform.position = SpawnPoints.GetChild(spawnPointNr-1).position;
     }
 }

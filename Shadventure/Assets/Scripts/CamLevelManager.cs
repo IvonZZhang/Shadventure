@@ -17,13 +17,18 @@ public class CamLevelManager : MonoBehaviour
     int mov_flag = 0;
     int currentLevel = 0;
     int step_counter = 0;
-    int total_step = 50;
+    int total_step = 70;
     float deltaX, deltaY;
 
     private void Start()
     {
         deltaX = total_step / 35;
         deltaY = total_step / 15;
+    }
+
+    public void SetCurrentLevel(int level)
+    {
+        currentLevel = level;
     }
     
     private void Update()
@@ -120,15 +125,23 @@ public class CamLevelManager : MonoBehaviour
                 SetPlayerToSpawnPoint(2);
                 // GameObject.Find("LevelFlag 4").SetActive(true);
                 GameObject.Find("LevelFlag 4").GetComponent<Collider2D>().enabled = true;
-                GameObject.Find("DieZone 5").SetActive(false);
+                GetComponent<AudioSource>().Play();
+                // GameObject.Find("DieZone 5").SetActive(false);
                 CameraTransform.position = new Vector3(140.0f, 15.0f, -10.0f);
                 ShadowTransform.position = CameraTransform.position + new Vector3(20.0f, -11.25f, 10.0f);
+                SetCurrentLevel(4);
                 break;
             case 6:
                 SetPlayerToSpawnPoint(9);
                 break;
             case 7:
-                SetPlayerToSpawnPoint(10);
+                SetPlayerToSpawnPoint(9);
+                GameObject.Find("LevelFlag 6").GetComponent<Collider2D>().enabled = true;
+                GetComponent<AudioSource>().Play();
+                // GameObject.Find("DieZone 5").SetActive(false);
+                CameraTransform.position = new Vector3(175.0f, 30.0f, -10.0f);
+                ShadowTransform.position = CameraTransform.position + new Vector3(20.0f, -11.25f, 10.0f);
+                SetCurrentLevel(6);
                 break;
             case 8:
                 SetPlayerToSpawnPoint(11);
@@ -140,7 +153,7 @@ public class CamLevelManager : MonoBehaviour
                 SetPlayerToSpawnPoint(13);
                 break;
             case 11:
-                SetPlayerToSpawnPoint(14);
+                // SetPlayerToSpawnPoint(14);
                 break;
             case 12:
                 SetPlayerToSpawnPoint(15);
@@ -159,6 +172,7 @@ public class CamLevelManager : MonoBehaviour
     private void SetPlayerToSpawnPoint(int spawnPointNr)
     {
         GameObject.Find("Player").transform.position = SpawnPoints.GetChild(spawnPointNr-1).position;
+        GameObject.Find("Player").GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);;
     }
 }
 

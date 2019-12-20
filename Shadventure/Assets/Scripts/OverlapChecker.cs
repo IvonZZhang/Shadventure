@@ -31,6 +31,44 @@ public class OverlapChecker : MonoBehaviour
             GetComponent<AudioSource>().Play();
             switch (levelManager.GetCurrentLevel())
             {
+                // case 0:
+                //     SetPlayerToSpawnPoint(1);
+                //     break;
+                // case 1:
+                //     SetPlayerToSpawnPoint(6);
+                //     break;
+                // case 2:
+                //     SetPlayerToSpawnPoint(5);
+                //     break;
+                // case 3:
+                //     SetPlayerToSpawnPoint(7);
+                //     break;
+                // case 4:
+                // case 5:
+                // case 6:
+                // case 7:
+                // case 8:
+                    
+                // case 9:
+                //     SetPlayerToSpawnPoint(12);
+                //     break;
+                // case 10:
+                //     SetPlayerToSpawnPoint(13);
+                //     break;
+                // case 11:
+                //     SetPlayerToSpawnPoint(14);
+                //     break;
+                // case 12:
+                //     SetPlayerToSpawnPoint(15);
+                //     break;
+                // case 13:
+                //     SetPlayerToSpawnPoint(3);
+                //     break;
+                // case 14:
+                //     SetPlayerToSpawnPoint(16);
+                //     break;
+                // default:
+                //     break;
                 case 0:
                     SetPlayerToSpawnPoint(1);
                     break;
@@ -84,6 +122,7 @@ public class OverlapChecker : MonoBehaviour
 
     private void SetPlayerToSpawnPoint(int spawnPointNr)
     {
+        GameObject.Find("Player").GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);;
         GameObject.Find("Player").transform.position = SpawnPoints.GetChild(spawnPointNr-1).position;
     }
 }
